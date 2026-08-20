@@ -32,7 +32,7 @@ async def on_message(message):
         return
 
     if "hi dronker" in message.content.lower():
-        message.channel.send("WHAT'S UP YO!")
+        await message.channel.send("WHAT'S UP YO!")
 
     await bot.process_commands(message)
 
