@@ -13,7 +13,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
 
-bot = commands.Bot(command_prefix=":", intents=intents)
+bot = commands.Bot(command_prefix="!", intents=intents)
 
 
 @bot.event
@@ -35,6 +35,11 @@ async def on_message(message):
         await message.channel.send("WHAT'S UP YO!")
 
     await bot.process_commands(message)
+
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send(f"Hello {ctx.author.mention}!")
 
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
