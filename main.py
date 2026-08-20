@@ -37,9 +37,4 @@ async def on_message(message):
     await bot.process_commands(message)
 
 
-@bot.command()
-async def hello(ctx):
-    await ctx.send(f"Hello {ctx.author.mention}!")
-
-
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
