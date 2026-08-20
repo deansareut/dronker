@@ -21,4 +21,20 @@ async def on_ready():
     print(f"{bot.user} is online.")
 
 
+@bot.event
+async def on_member_join(member):
+    await member.send(f"{member.name} has joined the server.")
+
+
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+
+    if "hi dronker" in message.content.lower():
+        messsage.channel.send("WHAT'S UP YO!")
+
+    await bot.process_commands(message)
+
+
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
